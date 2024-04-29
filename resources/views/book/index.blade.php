@@ -30,7 +30,7 @@
                     <div class="card-body">
                         <div class="btn-container">
                             <a href="{{ route('welcome.index') }}" class="btn btn-md btn-dark"><i class="bi bi-arrow-left"></i></a>
-                            <a href="{{ route('books.create') }}" class="btn btn-md btn-success"><i class="bi bi-plus"></i>Tambah Buku</a>
+                            <a href="{{ route('book.create') }}" class="btn btn-md btn-success"><i class="bi bi-plus"></i>Tambah Buku</a>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-bordered">
@@ -59,8 +59,8 @@
                                         <td>{{ $book->status }}</td>
                                         <td>{{ $book->tanggal_upload }}</td>
                                         <td class="text-center">
-                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('books.destroy', $book->id) }}" method="POST">
-                                                <a href="{{ route('books.edit', $book->id) }}" class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></a>
+                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('book.destroy', $book->id) }}" method="POST">
+                                                <a href="{{ route('book.edit', $book->id) }}" class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></a>
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>

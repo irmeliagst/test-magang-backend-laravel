@@ -73,7 +73,7 @@
             <form id="searchForm" class="form-inline my-2 my-lg-0" action="{{ route('books.search') }}" method="GET">
                 <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
             </form>
-            <a href="{{ route('books.index') }}" class="btn btn-success ml-2">
+            <a href="{{ route('book.index') }}" class="btn btn-success ml-2">
                 Buku</a>
         </div>
     </nav>
@@ -89,7 +89,7 @@
                     Buku">
                     <div class="card-body">
                         <h5 class="card-title">{{ $book->judul }}</h5>
-                        <a href="{{ route('books.show', $book->id) }}" class="btn btn-sm btn-dark">Show</a>
+                        <a href="{{ route('book.show', $book->id) }}" class="btn btn-sm btn-dark">Show</a>
                     </div>
                 </div>
             </div>

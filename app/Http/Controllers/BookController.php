@@ -12,12 +12,12 @@ class BookController extends Controller
     public function index(): View
     {
         $books = Book::all();
-        return view('buku.index', compact('books'));
+        return view('book.index', compact('books'));
     }
 
     public function create(): View
     {
-        return view('buku.create');
+        return view('book.create');
     }
 
     public function store(Request $request): RedirectResponse
@@ -46,19 +46,17 @@ class BookController extends Controller
 
         $book->save();
 
-        return redirect()->route('books.index')->with('success', 'Buku berhasil dibuat.');
+        return redirect()->route('book.index')->with('success', 'Buku berhasil dibuat.');
     }
 
-    public function show(string $id): View
+    public function show(Book $book)
     {
-        $book = Book::findOrFail($id);
-        return view('buku.show', compact('book'));
+        return view('book.show', compact('book'));
     }
 
-    public function edit(string $id): View
+    public function edit(Book $book)
     {
-        $book = Book::findOrFail($id);
-        return view('buku.edit', compact('book'));
+        return view('book.edit', compact('book'));
     }
 
     public function update(Request $request, Book $book): RedirectResponse
@@ -86,13 +84,13 @@ class BookController extends Controller
 
         $book->save();
 
-        return redirect()->route('books.index')->with('success', 'Buku berhasil diupdate.');
+        return redirect()->route('book.index')->with('success', 'Buku berhasil diupdate.');
     }
 
     public function destroy(Book $book): RedirectResponse
     {
         $book->delete();
-        return redirect()->route('books.index')->with('success', 'Buku berhasil dihapus.');
+        return redirect()->route('book.index')->with('success', 'Buku berhasil dihapus.');
     }
 
     public function search(Request $request)
@@ -103,6 +101,6 @@ class BookController extends Controller
             ->orWhere('author', 'like', "%$search%")
             ->paginate(10);
 
-        return view('welcome', compact('books'));
+        return view('welcome', compact('book'));
     }
 }

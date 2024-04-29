@@ -19,10 +19,10 @@
                     <div class="card-body">
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <a href="{{ route('books.index') }}" class="btn btn-md btn-dark"><i class="bi bi-arrow-left"></i></a>
+                                <a href="{{ route('book.index') }}" class="btn btn-md btn-dark"><i class="bi bi-arrow-left"></i></a>
                             </div>
                         </div>
-                        <form action="{{ route('books.update', $book->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('book.update', $book->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 

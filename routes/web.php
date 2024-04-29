@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/books', \App\Http\Controllers\BookController::class);
+Route::resource('book', \App\Http\Controllers\BookController::class);
 Route::get('/', [LandingPageController::class, 'index'])->name('landing-page');
 Route::get('/welcome', [LandingPageController::class, 'index'])->name('welcome.index');
 Route::get('/book', [BookController::class, 'index'])->name('book.index');
