@@ -20,13 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/bukus', \App\Http\Controllers\BookController::class);
+Route::resource('/books', \App\Http\Controllers\BookController::class);
 Route::get('/', [LandingPageController::class, 'index'])->name('landing-page');
-Route::get('/dashboard', [BookController::class, 'dashboard'])->name('admin.dashboard');
-Route::get('/admin', 'App\Http\Controllers\AdminController@index')->name('admin.index');
-// Route::get('/admin/addbook', 'App\Http\Controllers\AdminController@addBook')->name('admin.addbook');
-// Route::get('/', [BookController::class, 'welcome'])->name('welcome');
 Route::get('/welcome', [LandingPageController::class, 'index'])->name('welcome.index');
-Route::get('/bukus', [BookController::class, 'index'])->name('bukus.index');
-Route::get('buku/search', [BookController::class, 'search'])->name('bukus.search');
-
+Route::get('/book', [BookController::class, 'index'])->name('book.index');
+Route::get('book/search', [BookController::class, 'search'])->name('books.search');

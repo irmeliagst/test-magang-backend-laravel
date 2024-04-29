@@ -7,10 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Daftar Buku</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Ikon Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-        /* Custom CSS untuk responsif */
         .table-responsive {
             overflow-x: auto;
         }
@@ -30,11 +28,11 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <div class="btn-container"> <!-- Container untuk tombol -->
-                            <a href="{{ route('welcome.index') }}" class="btn btn-md btn-dark"><i class="bi bi-arrow-left"></i></a> <!-- Tombol kembali dipindahkan ke luar tabel dan menggunakan ikon -->
-                            <a href="{{ route('bukus.create') }}" class="btn btn-md btn-success"><i class="bi bi-plus"></i>Tambah Buku</a>
+                        <div class="btn-container">
+                            <a href="{{ route('welcome.index') }}" class="btn btn-md btn-dark"><i class="bi bi-arrow-left"></i></a>
+                            <a href="{{ route('books.create') }}" class="btn btn-md btn-success"><i class="bi bi-plus"></i>Tambah Buku</a>
                         </div>
-                        <div class="table-responsive"> <!-- Tabel responsif -->
+                        <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
@@ -49,24 +47,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($bukus as $buku)
+                                    @forelse ($books as $book)
                                     <tr>
-                                        <td>{{ $buku->id }}</td>
+                                        <td>{{ $book->id }}</td>
                                         <td>
-                                            <img src="{{ asset('storage/'.$buku->cover) }}" class="rounded" style="max-width: 150px; height: auto;">
+                                            <img src="{{ asset('storage/'.$book->cover) }}" class="rounded" style="max-width: 150px; height: auto;">
                                         </td>
-                                        <td>{{ $buku->author }}</td>
-                                        <td>{{ $buku->judul }}</td>
-                                        <td>{{ $buku->deskripsi }}</td>
-                                        <td>{{ $buku->status }}</td>
-                                        <td>{{ $buku->tanggal_upload }}</td>
+                                        <td>{{ $book->author }}</td>
+                                        <td>{{ $book->judul }}</td>
+                                        <td>{{ $book->deskripsi }}</td>
+                                        <td>{{ $book->status }}</td>
+                                        <td>{{ $book->tanggal_upload }}</td>
                                         <td class="text-center">
-                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('bukus.destroy', $buku->id) }}" method="POST">
-                                                <!-- <a href="{{ route('bukus.show', $buku->id) }}" class="btn btn-sm btn-dark">Show</a> -->
-                                                <a href="{{ route('bukus.edit', $buku->id) }}" class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></a> <!-- Menggunakan ikon edit -->
+                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('books.destroy', $book->id) }}" method="POST">
+                                                <a href="{{ route('books.edit', $book->id) }}" class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></a>
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button> <!-- Menggunakan ikon hapus -->
+                                                <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
                                             </form>
                                         </td>
                                     </tr>

@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Daftar Buku</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Ikon Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         body {
@@ -41,14 +40,14 @@
         }
 
         .card {
-            width: 180px; /* Mengatur lebar kartu */
-            margin: auto; /* Memusatkan kartu */
+            width: 180px;
+            margin: auto;
         }
 
         .card-img-top {
-            height: 270px; /* Atur tinggi gambar */
-            object-fit: cover; /* Pastikan gambar tetap proporsional */
-            margin: auto; /* Memusatkan gambar */
+            height: 270px;
+            object-fit: cover;
+            margin: auto;
         }
 
         .card-body {
@@ -62,8 +61,7 @@
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Daftar Buku</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -72,11 +70,10 @@
                 <li class="nav-item active">
                 </li>
             </ul>
-            <form id="searchForm" class="form-inline my-2 my-lg-0" action="{{ route('bukus.search') }}" method="GET">
-                <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
-                    name="search">
+            <form id="searchForm" class="form-inline my-2 my-lg-0" action="{{ route('books.search') }}" method="GET">
+                <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
             </form>
-            <a href="{{ route('bukus.index') }}" class="btn btn-success ml-2">
+            <a href="{{ route('books.index') }}" class="btn btn-success ml-2">
                 Buku</a>
         </div>
     </nav>
@@ -84,15 +81,15 @@
     <!-- Content Container -->
     <div class="container">
         <div class="row justify-content-center">
-            @foreach ($bukus as $buku)
-            @if ($buku->status === 'publish') <!-- Memeriksa status buku -->
+            @foreach ($books as $book)
+            @if ($book->status === 'publish') <!-- Memeriksa status buku -->
             <div class="col-md-2 mb-4 book-container">
                 <div class="card">
-                    <img src="{{ asset('storage/'.$buku->cover) }}" class="card-img-top rounded" alt="Cover
+                    <img src="{{ asset('storage/'.$book->cover) }}" class="card-img-top rounded" alt="Cover
                     Buku">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $buku->judul }}</h5>
-                        <a href="{{ route('bukus.show', $buku->id) }}" class="btn btn-sm btn-dark">Show</a>
+                        <h5 class="card-title">{{ $book->judul }}</h5>
+                        <a href="{{ route('books.show', $book->id) }}" class="btn btn-sm btn-dark">Show</a>
                     </div>
                 </div>
             </div>
@@ -120,12 +117,12 @@
             $('#searchInput').val(searchValue); // Memasukkan nilai pencarian ke input
         }
 
-        $(document).ready(function () {
+        $(document).ready(function() {
             // Reset form saat halaman dimuat ulang
             $('#searchForm')[0].reset();
 
             // Mengembalikan nilai pencarian dari localStorage saat form disubmit
-            $('#searchForm').submit(function () {
+            $('#searchForm').submit(function() {
                 var searchValue = $('#searchInput').val();
                 localStorage.setItem('searchValue', searchValue);
             });
