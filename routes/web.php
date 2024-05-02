@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('book/search', [BookController::class, 'search'])->name('book.search');
 Route::resource('book', \App\Http\Controllers\BookController::class);
 Route::get('/', [LandingPageController::class, 'index'])->name('landing-page');
 Route::get('/welcome', [LandingPageController::class, 'index'])->name('welcome.index');
 Route::get('/book', [BookController::class, 'index'])->name('book.index');
-Route::get('book/search', [BookController::class, 'search'])->name('books.search');
+

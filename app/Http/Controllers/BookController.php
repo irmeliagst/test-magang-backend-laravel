@@ -101,6 +101,6 @@ class BookController extends Controller
             ->orWhere('author', 'like', "%$search%")
             ->paginate(10);
 
-        return view('welcome', compact('book'));
+        return view('welcome', compact('books'));
     }
 }

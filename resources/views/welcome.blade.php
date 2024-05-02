@@ -70,7 +70,7 @@
                 <li class="nav-item active">
                 </li>
             </ul>
-            <form id="searchForm" class="form-inline my-2 my-lg-0" action="{{ route('books.search') }}" method="GET">
+            <form id="searchForm" class="form-inline my-2 my-lg-0" action="{{ route('book.search') }}" method="GET">
                 <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
             </form>
             <a href="{{ route('book.index') }}" class="btn btn-success ml-2">
