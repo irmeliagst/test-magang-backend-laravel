@@ -10,7 +10,7 @@ class LandingPageController extends Controller
 {
     public function index(): View
     {
-        $books = Book::all();
+        $books = Book::latest()->paginate(6);
 
         return view('welcome', compact('books'));
     }

@@ -96,14 +96,17 @@
             @endif
             @endforeach
         </div>
+        <div class="d-flex justify-content-center">
+            {!! $books->links() !!}
+        </div>
     </div>
 
     <!-- Footer Section -->
-    <footer class="footer">
-        <div class="container">
-            <p>Books App 2024, Ira Amelia Agasta</p>
-        </div>
-    </footer>
+    <footer class="footer fixed-bottom">
+    <div class="container-fluid text-center">
+        <span class="text-muted">Books App 2024, Ira Amelia Agasta</span>
+    </div>
+</footer>
 
     <!-- JavaScript libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

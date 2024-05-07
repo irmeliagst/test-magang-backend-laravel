@@ -25,3 +25,4 @@ Route::get('/', [LandingPageController::class, 'index'])->name('landing-page');
 Route::get('/welcome', [LandingPageController::class, 'index'])->name('welcome.index');
 Route::get('/book', [BookController::class, 'index'])->name('book.index');
 
+

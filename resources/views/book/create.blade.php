@@ -34,7 +34,7 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Author</label>
-                                <input type="text" class="form-control @error('author') is-invalid @enderror" name="author" value="{{ old('author') }}" placeholder="Masukkan Nama Author" maxlength="100">
+                                <input type="text" class="form-control @error('author') is-invalid @enderror" name="author" value="{{ old('author') }}" placeholder="Masukkan Nama Author" maxlength="100" required>
                                 @error('author')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
@@ -44,7 +44,7 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Judul</label>
-                                <input type="text" class="form-control @error('judul') is-invalid @enderror" name="judul" value="{{ old('judul') }}" placeholder="Masukkan Judul Buku" maxlength="100">
+                                <input type="text" class="form-control @error('judul') is-invalid @enderror" name="judul" value="{{ old('judul') }}" placeholder="Masukkan Judul Buku" maxlength="100" required>
                                 @error('judul')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
@@ -54,7 +54,7 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Deskripsi</label>
-                                <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" rows="5" placeholder="Masukkan Deskripsi Buku" maxlength="225">{{ old('deskripsi') }}</textarea>
+                                <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" rows="5" placeholder="Masukkan Deskripsi Buku" maxlength="225" required>{{ old('deskripsi') }}</textarea>
                                 @error('deskripsi')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
@@ -64,7 +64,7 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Cover</label>
-                                <input type="file" class="form-control @error('cover') is-invalid @enderror" name="cover" id="cover" onchange="previewImage(event)" maxlength="100">
+                                <input type="file" class="form-control @error('cover') is-invalid @enderror" name="cover" id="cover" onchange="previewImage(event)" maxlength="100" required>
                                 <img id="preview" src="#" alt="Preview Cover" style="display: none;">
                                 @error('cover')
                                 <div class="alert alert-danger mt-2">
@@ -75,7 +75,7 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Status</label>
-                                <select class="form-control @error('status') is-invalid @enderror" name="status">
+                                <select class="form-control @error('status') is-invalid @enderror" name="status" required>
                                     <option value="publish">Publish</option>
                                     <option value="notpublish">Not Publish</option>
                                 </select>
@@ -88,13 +88,14 @@
 
                             <div class="form-group">
                                 <label class="font-weight-bold">Tanggal Upload</label>
-                                <input type="date" class="form-control" id="tanggal_upload" name="tanggal_upload" maxlength="10">
+                                <input type="date" class="form-control" id="tanggal_upload" name="tanggal_upload" maxlength="10" required>
                                 @error('tanggal_upload')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
+
 
                             <button type="submit" class="btn btn-md btn-primary">SIMPAN</button>
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>
